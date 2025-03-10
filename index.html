@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        button {
+            background-color: #ff00ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2600ff;
+        }
+
+        #ft_list {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #ft_list div {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #ft_list div:hover {
+            background-color: #90e9cb;
+        }
+    </style>
+</head>
+<body>
+    <!--A função novaTarefa() é chamada quando o botão "Adicionar tarefa" é clicado-->
+    <button onclick="novaTarefa()">Adicionar tarefa</button>
+    <!-- A lista de tarefas será representada por uma div que terá como atributo id o valor
+’ft_list’-->
+    <div id="ft_list">
+        <!-- Todas as tarefas serão adicionadas dinamicamente aqui -->
+    </div>
+        
+
+    <!--Link do arquivo JavaScript-->
+    <script src="index.js"></script>
+</body>
+</html>
