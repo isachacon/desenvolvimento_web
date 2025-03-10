@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explosão</title>
+</head>
+<style> /* TAG do componente CSS da página*/
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+#balloon {
+    /* Dimensão inicial */
+    width: 200px;
+    height: 200px;
+    
+    /* Essa propriedade estar em 50% que torna a div um círculo perfeito, nosso balão*/
+    border-radius: 50%; 
+    
+    /* Cor inicial do background vermelho*/
+    background-color: #ff0000;
+    
+    position: relative;
+
+    /* Muda a aparência do cursor ao passar sobre o balão*/
+    cursor: pointer;
+}
+
+/* Hover effect */
+#balloon:hover {
+    /* Aumento de escala ao passar o mouse*/
+    transform: scale(1.05);
+}
+
+</style>
+<body>
+    <div id="balloon"></div>
+    <script>
+        // Variaveis iniciais do balão
+        let currentSize = 200;  
+        const minSize = 200;    // Tamanho mínimo do balão no decremento
+        const maxSize = 420;    // Tamanho máximo do balão no incremento
+        const sizeIncrement = 10; // Incremento de tamanho a cada click
+        const sizeDecrement = 5;  // Decremento de tamanho ao passar o mouse
+
+        // Array de cores vermelho, verde, azul
+        const colors = ['#ff0000', '#00ff00', '#0000ff'];
+        let currentColorIndex = 0;
+
+        // Get do elemento balão
+        const balloon = document.getElementById('balloon');
+
+        // FUnção de atualização de tamanho e cor
+        function updateBalloon(size, colorIndex) {
+            balloon.style.width = `${size}px`;
+            balloon.style.height = `${size}px`;
+            balloon.style.backgroundColor = colors[colorIndex];
+        }
+
+        // Função de navegação no array de cores na ordem vermelho, verde, azul
+        function nextColor() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length; //length retorna o tamanho do array, % faz a divisão e retorna a parte inteira
+            return currentColorIndex;
+        }
+
+        // Esta função é chamada quando o mouse sai do balão (mouseout), fazendo com que as cores circulem na ordem inversa.
+        function previousColor() {
+            currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+            return currentColorIndex;
+        }
+
+        // Função estoura balão
+        function resetBalloon() {
+            currentSize = minSize;
+            currentColorIndex = 0; //Posição 0 no array de cores
+            updateBalloon(currentSize, currentColorIndex);
+        }
+
+        // Evento click
+        balloon.addEventListener('click', (e) => {
+            // Incremento de tamanho
+            currentSize += sizeIncrement;
+            
+            // Checa se o balão estourou
+            if (currentSize > maxSize) {
+                alert('POP!');
+                resetBalloon();
+                return;
+            }
+            
+            // Atualiza balão
+            updateBalloon(currentSize, nextColor());
+        });
+
+        // Evento decremento
+        balloon.addEventListener('mouseout', (e) => {
+            // Faz o decremento tirando o máximo do novo tamanho com o tamanho mínimo
+            currentSize = Math.max(currentSize - sizeDecrement, minSize);
+            
+            // Atualiza balão
+            updateBalloon(currentSize, previousColor());
+        });
+
+        // Inicializa
+        updateBalloon(currentSize, currentColorIndex);
+    </script>
+</body>
+
+</html>
