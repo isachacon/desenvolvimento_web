@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            left-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Especifica que o input deve ser do tipo texto*/
+        input[type="text"] {
+            width: 100px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ff009d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #27e6dc;
+        }
+
+        /*
+        .error {
+            border-color: #ff0000;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <!-- Especifica que o input deve ser do tipo texto*/ -->
+            <input type="text" id="left" placeholder="left" left="0">
+            <select id="operation">
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">×</option>
+                <option value="divide">÷</option>
+                <option value="porcent">%</option>
+            </select>
+            <!-- Especifica que o input deve ser do tipo texto*/ -->
+            <input type="text" id="right" placeholder="right" left="0">
+        </div>
+        <button id="generateBtn">Try me!</button>
+        <div id="errorMsg" class="error-message"></div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        const leftInput = document.getElementById('left');
+        const rightInput = document.getElementById('right');
+        const operationSelect = document.getElementById('operation');
+        const generateBtn = document.getElementById('generateBtn');
+        const errorMsg = document.getElementById('errorMsg');
+
+        // Alerta a cada 30 segundos
+        setInterval(() => {
+            alert('Please, use me...');
+        }, 30000);
+
+        function validateCharInput(input,id) {
+            // Get the input element
+            const inputField = document.getElementById(id);
+            const inputValue = inputField.value;
+
+            // Regular expression pattern
+            // [0-9] - apenas números 
+            const pattern = /^[0-9]*$/;
+
+            // Validação do caractere especial
+            if (!pattern.test(inputValue)) {
+                input.classList.add('error');
+                return false;
+            } 
+            input.classList.remove('error');
+            return true;
+        }
+
+
+        // Calculate result
+        function calculateResult(num1, num2, operation) {
+            switch(operation) {
+                case 'add':
+                    return num1 + num2;
+                case 'subtract':
+                    return num1 - num2;
+                case 'multiply':
+                    return num1 * num2;
+                case 'divide':
+                    return num1 === 0 || num2 === 0 ? 0 : (num1 / num2).toFixed(2);
+                case 'percent':
+                    return num1%num2;
+                default:
+                    return 0;
+            }
+        }
+
+        // Button click handler
+        generateBtn.addEventListener('click', () => {       
+            const isleftCharValid = validateCharInput(leftInput, 'left');
+            const isrightCharValid = validateCharInput(rightInput, 'right');
+            if (!isleftCharValid || !isrightCharValid) {
+                alert('Error :(')
+                return;
+            }
+
+            // ETAPA DA CONVERSÃO DE STRING PARA NÚMERO
+            const left = parseInt(leftInput.value);
+            const right = parseInt(rightInput.value);
+            const num1 = Number(left)
+            const num2 = Number(right)
+            const result = calculateResult(num1, num2, operationSelect.value);
+
+            //Printa na tela
+            //const operationSelect = document.getElementById('operation');
+            if (num2===0 && operationSelect.value==='divide'){
+                alert('It’s over 9000!')
+                console.log('It’s over 9000!')
+                return;
+
+            }
+            else {
+                alert(`${num1} ${operationSelect.options[operationSelect.selectedIndex].text} ${num2} = ${result}`);
+                console.log(`${num1} ${operationSelect.options[operationSelect.selectedIndex].text} ${num2} = ${result}`)
+        }
+        });
+
+    </script>
+</body>
+</html>
