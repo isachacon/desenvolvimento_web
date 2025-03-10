@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabelle Chacon - Currículo</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --background-color: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .job {
+            margin-bottom: 1.5rem;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .job-period {
+            color: #666;
+            font-style: italic;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Isabelle Chacon</h1>
+        <div class="contact-info">
+            <p>São Paulo, SP, Brasil</p>
+            <p>isa_chacom@hotmail.com | 11941451017</p>
+            <p><a href="https://www.linkedin.com/in/isabelle-chacon">LinkedIn</a> | <a href="https://github.com/isachacon">GitHub</a></p>
+        </div>
+    </header>
+
+    <section>
+        <h2>Experiência Profissional</h2>
+        
+        <div class="job">
+            <div class="job-title">Cientista de Dados II - Cielo</div>
+            <div class="job-period">Junho 2024 - Janeiro 2025</div>
+            <p>Gerência de Serviços Financeiros e Billing, no time de Produtos de Prazo, atuando com Modelagem de Risco no Balcão de Recebíveis.</p>
+        </div>
+
+        <div class="job">
+            <div class="job-title">Cientista de Dados I - Cielo</div>
+            <div class="job-period">Novembro 2023 - Junho 2024</div>
+            <p>Gerência de Segmento Varejo e Customer Success, Coordenação de Ciência de Dados e Insights.</p>
+        </div>
+
+        <div class="job">
+            <div class="job-title">Analista de Dados - Leroy Merlin</div>
+            <div class="job-period">Setembro 2022 - Novembro 2023</div>
+            <p>Desenvolvimento de projetos de Inteligência Artificial e Análises Estatísticas para Diretoria de Marketing.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Formação</h2>
+        <div class="education">
+            <h3>Instituto Federal de São Paulo</h3>
+            <p>Tecnologia da Produção Industrial</p>
+            <p>2020 - 2024 (Cursando)</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Habilidades</h2>
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">AWS</span>
+            <span class="skill">Spark</span>
+            <span class="skill">Google Cloud</span>
+        </div>
+    </section>
+</body>
+</html>
