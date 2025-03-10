@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    background-image: url('https://tm.ibxk.com.br/2022/08/31/31101407382061.jpg?ims=1200x675'); /* Definição do plano de fundo */
+}
+
+.footer {
+    background-image: url('https://abdatum.com/media/images/multiverso-burburja.png'); /* Definição do plano de fundo */
+}
+
+/* Propriedades do texto do html */
+.text-overlay {
+    text-align: center;
+    vertical-align: text-bottom;
+    color: white;
+
+}
+ 
+h1, h2 {
+    font-size: .5em; /* Definição do ptamanho da fonte */
+}
+
+/* Definição das propriedades da caixa preta e do texto interno */
+.content {
+    height: 50vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: end; /* Propriedade que define a posição do texto transversalmente, eixo y*/
+    justify-content: center;
+    font-size: .5em;
+    text-align: center; /* Propriedade que define a posição do eixo x*/
+    padding: 20px;
+
+
+@media (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll; /* Propriedade da forma do parallax*/
+    }
+}

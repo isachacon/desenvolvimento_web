@@ -1,0 +1,168 @@
+
+
+/* Container and layout */
+.profile-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.profile-layout {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Card styling */
+.profile-card {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    transition: transform 0.2s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Header and image */
+.profile-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-image {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+}
+
+/* Profile information */
+.profile-info {
+    margin-bottom: 2rem;
+}
+
+.profile-description {
+    text-align: center;
+    color: #4a5568;
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+}
+
+/* Social links */
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.rem;
+}
+
+.social-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #edf2f7;
+    transition: all 0.2s ease;
+}
+
+/* Social icons - Replace with actual icons */
+.linkedin { background: url('https://www.iconarchive.com/download/i78478/designbolts/cute-social-media/Linkedin.ico') center/20px no-repeat; }
+.github { background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXa7w6ME7EcoG84FreJ5SWxc11Hub3pxR0wA&s') center/20px no-repeat; }
+.twitter { background: url('https://cdn-icons-png.flaticon.com/256/3938/3938028.png') center/20px no-repeat; }
+
+.social-icon:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+/* Footer and button */
+.profile-footer {
+    text-align: center;
+}
+
+.contact-button {
+    background-color: #00ffb3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.contact-button:hover {
+    background-color: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+}
+
+.contact-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 1rem;
+    }
+
+    .profile-card {
+        padding: 1.5rem;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-name {
+        font-size: 1.25rem;
+    }
+
+    .social-list {
+        gap: 1rem;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .profile-card,
+    .contact-button,
+    .social-icon {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .profile-card {
+        border: 2px solid #000;
+    }
+
+    .contact-button {
+        border: 2px solid #000;
+    }
+}

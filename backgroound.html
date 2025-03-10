@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <link rel="stylesheet" href="backgroound.css">
+        <title>Modificador de plano de fundo</title> </head> 
+        <body> 
+            <button id="colorBtn">Mudar cor</button> 
+        </body> 
+        <script
+        >document.getElementById('colorBtn').addEventListener('click', 
+                                                            function() 
+                                                            { const randomColor = '#' + Math.floor(
+                                                                Math.random()*16777215
+                                                                ).toString(16); 
+                                                                document.body.style.backgroundColor = randomColor; 
+                                                                });
+                                                                
+        </script>
+        </html>
